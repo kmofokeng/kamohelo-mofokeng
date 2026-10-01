@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Independent technology transformation advisory for CEOs, CIOs, CTOs and transformation leaders navigating complex technology, cloud, AI, architecture and programme challenges.">
+<title>Kamohelo Mofokeng | Technology Transformation Advisor</title>
+
+<style>
+:root {
+  --primary: #1a1a2e;
+  --secondary: #16213e;
+  --accent: #0f3460;
+  --gold: #c9a227;
+  --text: #2d2d2d;
+  --text-light: #666;
+  --bg: #fafafa;
+  --card-bg: #ffffff;
+  --border: #e8e8e8;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+input[type="radio"] { display: none; }
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--primary);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  min-height: 64px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+
+.nav-brand {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.nav-brand span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-links label {
+  color: rgba(255,255,255,0.75);
+  padding: 20px 15px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-links label:hover {
+  color: #fff;
+  border-bottom-color: var(--gold);
+}
+
+/* Pages */
+.page {
+  display: none;
+  padding-top: 64px;
+  min-height: 100vh;
+}
+
+#nav-home:checked ~ .page-home,
+#nav-services:checked ~ .page-services,
+#nav-experience:checked ~ .page-experience,
+#nav-portfolio:checked ~ .page-portfolio,
+#nav-about:checked ~ .page-about,
+#nav-contact:checked ~ .page-contact {
+  display: block;
+}
+
+#nav-home:checked ~ .nav .nav-links label[for="nav-home"],
+#nav-services:checked ~ .nav .nav-links label[for="nav-services"],
+#nav-experience:checked ~ .nav .nav-links label[for="nav-experience"],
+#nav-portfolio:checked ~ .nav .nav-links label[for="nav-portfolio"],
+#nav-about:checked ~ .nav .nav-links label[for="nav-about"],
+#nav-contact:checked ~ .nav .nav-links label[for="nav-contact"] {
+  color: #fff;
+  border-bottom-color: var(--gold);
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(201,162,39,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid var(--gold);
+  margin: 0 auto 30px;
+  object-fit: cover;
+  object-position: center 15%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #333, #555);
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
+}
+
+.hero h2 {
+  color: var(--gold);
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 0 20px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hero p {
+  color: rgba(255,255,255,0.82);
+  font-size: 16px;
+  max-width: 720px;
+  margin: 0 auto 30px;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.stat { text-align: center; min-width: 130px; }
+
+.stat-number {
+  color: var(--gold);
+  font-size: 32px;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.stat-label {
+  color: rgba(255,255,255,0.6);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  margin-top: 4px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 30px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--primary);
+}
+
+.btn-primary:hover {
+  background: #d4ad2e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(201,162,39,0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* General content */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.section {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  color: var(--text-light);
+  font-size: 14px;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.about-text p {
+  margin-bottom: 16px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.qualifications {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.qualifications li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.qualifications li::before {
+  content: "▪";
+  color: var(--gold);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* Service cards */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-top: 3px solid var(--gold);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  font-size: 17px;
+  color: var(--primary);
+  margin: 0 0 12px;
+}
+
+.card p {
+  font-size: 13px;
+  color: var(--text-light);
+  margin: 0 0 14px;
+}
+
+.card ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.card li {
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+/* Diagnostic */
+.diagnostic-section {
+  background: #f3f1e8;
+  border-radius: 10px;
+  padding: 36px;
+}
+
+.diagnostic-section .section-subtitle {
+  margin-bottom: 30px;
+}
+
+.diagnostic-section ul {
+  padding-left: 18px;
+}
+
+.diagnostic-section li {
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), var(--accent));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding: 24px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-left: 3px solid var(--gold);
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -38px;
+  top: 30px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--bg);
+}
+
+.timeline-date {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.timeline-role {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 6px 0 4px;
+}
+
+.timeline-company {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.timeline-desc {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.timeline-desc ul {
+  padding-left: 18px;
+  margin: 8px 0 0;
+}
+
+.timeline-desc li {
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+/* Tags */
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tech-tag {
+  background: var(--primary);
+  color: rgba(255,255,255,0.9);
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.industry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.industry-tag {
+  background: linear-gradient(135deg, var(--accent), var(--secondary));
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Case studies */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.impact-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 26px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.impact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--accent));
+}
+
+.impact-card .industry-label {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.impact-card h4 {
+  font-size: 16px;
+  color: var(--primary);
+  margin: 0 0 10px;
+}
+
+.impact-card p {
+  font-size: 13px;
+  color: var(--text-light);
+  margin: 0 0 12px;
+}
+
+.impact-metric {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Contact */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-info {
+  padding: 30px;
+  background: var(--primary);
+  border-radius: 8px;
+  color: #fff;
+}
+
+.contact-info h3 {
+  color: var(--gold);
+  margin: 0 0 20px;
+  font-size: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+}
+
+.contact-item a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  color: var(--gold);
+}
+
+.contact-form {
+  padding: 30px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--gold);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn-submit {
+  background: var(--gold);
+  color: var(--primary);
+  border: none;
+  padding: 14px 32px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background: #d4ad2e;
+}
+
+.disclaimer {
+  font-size: 11px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+/* Footer */
+.footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 30px;
+  font-size: 12px;
+}
+
+.footer span { color: var(--gold); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav { padding: 0 16px; }
+  .nav-links label { padding: 20px 9px; font-size: 10px; }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    position: relative;
+    min-height: auto;
+    flex-direction: column;
+    padding: 14px 10px 0;
+  }
+
+  .nav-brand { margin-bottom: 8px; }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-links label {
+    padding: 10px 7px;
+    font-size: 9px;
+  }
+
+  .page { padding-top: 0; }
+
+  .hero {
+    min-height: auto;
+    padding: 60px 20px 70px;
+  }
+
+  .hero h1 { font-size: 30px; }
+  .hero h2 { font-size: 15px; line-height: 1.5; }
+  .hero-stats { gap: 18px; }
+  .stat { min-width: 110px; }
+  .stat-number { font-size: 25px; }
+
+  .about-grid,
+  .contact-grid,
+  .grid-cards,
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container { padding: 50px 20px; }
+
+  .diagnostic-section {
+    padding: 24px;
+  }
+
+  .profile-pic {
+    width: 140px;
+    height: 140px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation Radio Inputs -->
+<input type="radio" name="nav" id="nav-home" checked>
+<input type="radio" name="nav" id="nav-services">
+<input type="radio" name="nav" id="nav-experience">
+<input type="radio" name="nav" id="nav-portfolio">
+<input type="radio" name="nav" id="nav-about">
+<input type="radio" name="nav" id="nav-contact">
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-brand">K<span>.</span>MOFOKENG</div>
+
+  <div class="nav-links">
+    <label for="nav-home">Home</label>
+    <label for="nav-services">Services</label>
+    <label for="nav-experience">Experience</label>
+    <label for="nav-portfolio">Case Studies</label>
+    <label for="nav-about">About</label>
+    <label for="nav-contact">Contact</label>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page page-home">
+  <div class="hero">
+    <div class="hero-content">
+
+      <img
+        src="Kamohelo-Mofokeng-Profile.JPG"
+        alt="Kamohelo Mofokeng"
+        class="profile-pic"
+      >
+
+      <h1>Technology Transformation Advisory</h1>
+
+      <h2>
+        Helping organisations navigate complex technology decisions and
+        transformation challenges
+      </h2>
+
+      <p>
+        I advise CEOs, CIOs, CTOs and transformation leaders on technology
+        strategy, cloud and AI adoption, enterprise architecture, programme
+        recovery and large-scale transformation.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">18+</div>
+          <div class="stat-label">Years in Technology</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Specialists Led</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">12,500+</div>
+          <div class="stat-label">Users in Major ERP Transformation</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">6</div>
+          <div class="stat-label">Countries in One Transformation</div>
+        </div>
+      </div>
+
+      <div class="cta-buttons">
+        <label for="nav-contact" class="btn btn-primary">
+          Discuss a Challenge
+        </label>
+
+        <label for="nav-services" class="btn btn-outline">
+          View Advisory Services
+        </label>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="page page-services">
+  <div class="container">
+
+    <div class="section">
+      <div class="section-title">Advisory Services</div>
+
+      <div class="section-subtitle">
+        Practical technology leadership for complex enterprise challenges
+      </div>
+
+      <div class="grid-cards">
+
+        <div class="card">
+          <h3>Technology Strategy & Executive Advisory</h3>
+          <p>
+            Independent perspective for CEOs, CIOs and CTOs making major
+            technology investment and transformation decisions.
+          </p>
+          <ul>
+            <li>Technology strategy and roadmaps</li>
+            <li>CIO / CTO advisory</li>
+            <li>Technology investment decisions</li>
+            <li>Operating model design</li>
+            <li>Technology portfolio assessment</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Transformation & Programme Recovery</h3>
+          <p>
+            Independent assessment and recovery support when a major
+            transformation is struggling with delivery, governance, risk or
+            alignment.
+          </p>
+          <ul>
+            <li>Programme health checks</li>
+            <li>Transformation recovery</li>
+            <li>PMO effectiveness</li>
+            <li>Delivery governance</li>
+            <li>Executive reporting and risk</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Cloud, AI & Technology Modernisation</h3>
+          <p>
+            Strategic guidance for organisations modernising their technology
+            estate and evaluating cloud and AI opportunities.
+          </p>
+          <ul>
+            <li>Cloud adoption strategy</li>
+            <li>Application modernisation</li>
+            <li>GenAI opportunity assessment</li>
+            <li>Data and platform strategy</li>
+            <li>Enterprise architecture</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Independent Technology Assessments</h3>
+          <p>
+            Objective assessments that give executives a clearer view of
+            technology risks, opportunities and practical next steps.
+          </p>
+          <ul>
+            <li>Technology maturity assessments</li>
+            <li>Architecture reviews</li>
+            <li>Transformation assessments</li>
+            <li>Vendor / solution assessments</li>
+            <li>Technology business cases</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FIRST VALIDATION OFFER -->
+    <div class="section diagnostic-section">
+
+      <div class="section-title">Executive Technology Diagnostic</div>
+
+      <div class="section-subtitle">
+        A focused advisory session for a technology challenge that needs an
+        experienced independent perspective
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-text">
+
+          <p>
+            Bring a complex technology or transformation challenge to an
+            experienced technology leader for an independent, structured
+            assessment.
+          </p>
+
+          <p>
+            The diagnostic is designed for executives who need to pressure-test
+            a decision, understand transformation risks, challenge an existing
+            approach or determine what should happen next.
+          </p>
+
+          <p><strong>Typical topics include:</strong></p>
+
+          <ul>
+            <li>Technology strategy</li>
+            <li>Cloud and AI adoption</li>
+            <li>Enterprise architecture</li>
+            <li>Transformation and programme risk</li>
+            <li>Technology investment decisions</li>
+            <li>Modernisation strategy</li>
+          </ul>
+
+        </div>
+
+        <div class="card">
+
+          <h3>What the diagnostic includes</h3>
+
+          <ul>
+            <li>Pre-session review of relevant material</li>
+            <li>60–90 minute executive advisory session</li>
+            <li>Structured assessment of the challenge</li>
+            <li>Key observations and risks</li>
+            <li>Recommended next steps</li>
+            <li>Concise written executive briefing</li>
+          </ul>
+
+          <label for="nav-contact" class="btn btn-primary">
+            Enquire About a Diagnostic
+          </label>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="page page-experience">
+  <div class="container">
+
+    <div class="section">
+
+      <div class="section-title">Experience</div>
+
+      <div class="section-subtitle">
+        Enterprise transformation experience across industries and geographies
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">November 2025 – Present</div>
+          <div class="timeline-role">
+            Senior Engagement Manager, Professional Services
+          </div>
+          <div class="timeline-company">
+            Amazon Web Services (AWS) | South Africa
+          </div>
+
+          <div class="timeline-desc">
+            <ul>
+              <li>
+                Lead complex enterprise transformation programmes involving
+                multidisciplinary technology teams and senior executive
+                stakeholders.
+              </li>
+              <li>
+                Advise organisations on cloud modernisation, GenAI adoption,
+                data strategy and technology transformation.
+              </li>
+              <li>
+                Lead large-scale modernisation initiatives spanning
+                architecture, delivery governance, risk and transformation
+                execution.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">April 2015 – October 2025</div>
+          <div class="timeline-role">
+            Executive Lead: Digital Transformation & CIO Advisory
+          </div>
+          <div class="timeline-company">
+            Deloitte | South Africa & Africa
+          </div>
+
+          <div class="timeline-desc">
+            <ul>
+              <li>
+                Led digital advisory and transformation engagements for
+                financial services, healthcare, mining, energy, retail and
+                other enterprise clients.
+              </li>
+              <li>
+                Led multidisciplinary teams of 50+ and held responsibility for
+                commercial performance, client relationships and go-to-market
+                development.
+              </li>
+              <li>
+                Advised C-level executives on technology investment,
+                transformation strategy, cost optimisation and technology
+                enablement.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">February 2014 – February 2015</div>
+          <div class="timeline-role">
+            Principal Consultant: Financial Solutions
+          </div>
+          <div class="timeline-company">
+            Oracle | South Africa
+          </div>
+
+          <div class="timeline-desc">
+            <ul>
+              <li>
+                Established and led a South African delivery practice for
+                financial-services application implementations.
+              </li>
+              <li>
+                Led high-performing consulting and engineering teams across
+                enterprise application delivery.
+              </li>
+              <li>
+                Secured and supported a 36-month engagement with a major
+                financial institution.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">January 2008 – January 2014</div>
+          <div class="timeline-role">
+            Software Engineer → Senior Consultant
+          </div>
+          <div class="timeline-company">
+            South African Reserve Bank, Tier-1 Banks & Insurance
+          </div>
+
+          <div class="timeline-desc">
+            <ul>
+              <li>
+                Built and supported mission-critical enterprise and regulatory
+                technology platforms.
+              </li>
+              <li>
+                Worked across banking, insurance, investment and regulatory
+                technology environments.
+              </li>
+              <li>
+                Progressed from software engineering into consulting and
+                technology advisory responsibilities.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Industries -->
+      <div class="section" style="margin-top:60px;">
+        <h3 style="font-size:20px; color:var(--primary); margin-bottom:20px;">
+          Industry Experience
+        </h3>
+
+        <div class="industry-tags">
+          <div class="industry-tag">Financial Services</div>
+          <div class="industry-tag">Fintech & Digital Banking</div>
+          <div class="industry-tag">Insurance</div>
+          <div class="industry-tag">Telecommunications</div>
+          <div class="industry-tag">Mining & Metals</div>
+          <div class="industry-tag">Energy & Resources</div>
+          <div class="industry-tag">Consumer & Agriculture</div>
+          <div class="industry-tag">Healthcare</div>
+          <div class="industry-tag">Public Sector</div>
+        </div>
+      </div>
+
+      <!-- Technology Domains -->
+      <div class="section" style="margin-top:40px;">
+        <h3 style="font-size:20px; color:var(--primary); margin-bottom:20px;">
+          Technology Domains
+        </h3>
+
+        <div class="tech-grid">
+          <span class="tech-tag">Cloud & Modernisation</span>
+          <span class="tech-tag">Enterprise Architecture</span>
+          <span class="tech-tag">AI & GenAI</span>
+          <span class="tech-tag">Data & Analytics</span>
+          <span class="tech-tag">ERP Transformation</span>
+          <span class="tech-tag">Application Modernisation</span>
+          <span class="tech-tag">Digital Platforms</span>
+          <span class="tech-tag">Technology Operating Models</span>
+        </div>
+
+        <p style="font-size:12px; color:var(--text-light); margin-top:18px;">
+          AWS | Azure | GCP | SAP S/4HANA | Oracle Cloud |
+          Microsoft Dynamics 365
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<div class="page page-portfolio">
+  <div class="container">
+
+    <div class="section">
+
+      <div class="section-title">Selected Case Studies</div>
+
+      <div class="section-subtitle">
+        Transformation challenges, scale and outcomes
+      </div>
+
+      <div class="impact-grid">
+
+        <div class="impact-card">
+          <div class="industry-label">
+            Financial Services — Capital Markets
+          </div>
+
+          <h4>Mainframe Modernisation & Cloud Transformation</h4>
+
+          <p>
+            A major financial-market infrastructure organisation required a
+            structured path to modernise a highly critical legacy technology
+            estate while maintaining operational continuity.
+          </p>
+
+          <p>
+            Led transformation governance across six concurrent workstreams,
+            coordinating 35+ specialists and senior stakeholders across
+            architecture, modernisation and cloud delivery.
+          </p>
+
+          <div class="impact-metric">
+            6 workstreams | 35+ specialists | Mission-critical platform
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="industry-label">
+            Enterprise Technology — ERP
+          </div>
+
+          <h4>Multi-Country SAP S/4HANA Transformation</h4>
+
+          <p>
+            Led programme governance for a major enterprise ERP
+            transformation spanning multiple countries, sites and business
+            units.
+          </p>
+
+          <p>
+            The programme involved approximately 12,500 users across six
+            countries and 23 sites, requiring coordinated transformation
+            governance, delivery management and executive stakeholder
+            alignment.
+          </p>
+
+          <div class="impact-metric">
+            12,500 users | 6 countries | 23 sites
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="industry-label">
+            Public Sector — National Programme
+          </div>
+
+          <h4>Large-Scale Public Sector Technology Transformation</h4>
+
+          <p>
+            Led technology transformation work supporting a national student
+            funding environment serving more than 600,000 students and
+            involving approximately R9.8 billion in funding.
+          </p>
+
+          <div class="impact-metric">
+            607,129 students | R9.8bn funding environment
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="industry-label">
+            Financial Services — Digital Banking
+          </div>
+
+          <h4>Cloud-Native International Banking Platform</h4>
+
+          <p>
+            Spearheaded development of a greenfield cloud-based international
+            banking platform using microservices, containerisation and
+            open-banking APIs.
+          </p>
+
+          <div class="impact-metric">
+            Cloud-native architecture | Microservices | Open Banking
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="industry-label">
+            Financial Services — Fintech
+          </div>
+
+          <h4>Enterprise Architecture & Digital Channel Expansion</h4>
+
+          <p>
+            Defined technology strategy and enterprise architecture for a
+            fintech subsidiary, integrating mobile-first banking with core
+            services using API-first design principles.
+          </p>
+
+          <div class="impact-metric">
+            Pan-African expansion | API-first | Digital banking
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="industry-label">
+            Consumer & Agriculture
+          </div>
+
+          <h4>Multi-Country ERP Implementation</h4>
+
+          <p>
+            Managed programme governance for a major SAP S/4HANA
+            transformation across six countries and 23 sites, supporting
+            delivery coordination and executive alignment.
+          </p>
+
+          <div class="impact-metric">
+            6 countries | 23 sites | Enterprise ERP
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="industry-label">
+            Mining & Energy
+          </div>
+
+          <h4>Digital Readiness & Enterprise Architecture</h4>
+
+          <p>
+            Led a strategic assessment of infrastructure, data and IT/OT
+            security to evaluate digital readiness and prioritise major
+            digitalisation opportunities.
+          </p>
+
+          <div class="impact-metric">
+            15 use cases assessed | IT/OT | Future-state architecture
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="industry-label">
+            Non-Profit — Healthcare
+          </div>
+
+          <h4>Digital Payment Systems & CRM</h4>
+
+          <p>
+            Led an end-to-end Microsoft Dynamics 365 implementation with
+            embedded automation and CRM workflows to improve operational
+            service delivery.
+          </p>
+
+          <div class="impact-metric">
+            CRM | Automation | Digital payments
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="industry-label">
+            Regulatory Technology
+          </div>
+
+          <h4>Foreign Investment & Exchange Control Systems</h4>
+
+          <p>
+            Designed and developed enterprise systems supporting foreign
+            investment monitoring and exchange-control processes, including
+            validation and anomaly detection.
+          </p>
+
+          <div class="impact-metric">
+            20% noncompliance identified | Regulatory technology
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page page-about">
+  <div class="container">
+
+    <div class="section">
+
+      <div class="section-title">About</div>
+
+      <div class="section-subtitle">
+        18+ years of technology leadership, consulting and transformation
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-text">
+
+          <p>
+            I help organisations make better technology decisions when the
+            problem is complex, high-impact or difficult to navigate
+            internally.
+          </p>
+
+          <p>
+            I am a technology transformation executive with 18+ years of
+            experience across enterprise technology, cloud, digital
+            transformation, enterprise architecture, ERP and large-scale
+            programme delivery.
+          </p>
+
+          <p>
+            My experience spans financial services, fintech, healthcare,
+            mining, energy, agriculture, retail, public sector and technology
+            organisations across Africa and Europe.
+          </p>
+
+          <p>
+            I have led multinational transformation programmes, advised
+            C-suite executives, managed large multidisciplinary teams and
+            shaped technology strategies and programmes involving significant
+            organisational, operational and technology change.
+          </p>
+
+          <p>
+            My approach is deliberately practical: understand the business
+            objective, challenge assumptions, identify the material technology
+            and delivery risks, and translate complexity into an executable
+            path forward.
+          </p>
+
+          <h3 style="font-size:16px; color:var(--primary); margin:30px 0 12px;">
+            Where I Add Value
+          </h3>
+
+          <ul class="qualifications">
+            <li>Complex technology strategy and transformation decisions</li>
+            <li>Executive-level technology and architecture advisory</li>
+            <li>Large transformation programme health and recovery</li>
+            <li>Cloud, AI and technology modernisation strategy</li>
+            <li>Enterprise architecture and technology roadmaps</li>
+            <li>Technology investment and business-case decisions</li>
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h3 style="font-size:16px; color:var(--primary); margin-bottom:16px;">
+            Education & Certifications
+          </h3>
+
+          <ul class="qualifications">
+            <li>BSc Information Technology — Tshwane University of Technology</li>
+            <li>Project Management Professional (PMP) — PMI</li>
+            <li>Lean Six Sigma Black Belt</li>
+            <li>SAFe 6 Agilist</li>
+            <li>SAP Activate for Project Managers</li>
+            <li>Oracle Cloud Platform Professional Architect</li>
+            <li>AWS Certified Solutions Architect – Associate</li>
+            <li>AWS Certified Cloud Practitioner</li>
+            <li>AWS Certified AI Practitioner</li>
+            <li>AWS Certified Generative AI Developer</li>
+          </ul>
+
+          <h3 style="font-size:16px; color:var(--primary); margin:30px 0 12px;">
+            Leadership & Professional Experience
+          </h3>
+
+          <ul class="qualifications">
+            <li>Technology transformation leadership</li>
+            <li>CIO / CTO advisory</li>
+            <li>Enterprise architecture</li>
+            <li>Large-scale programme leadership</li>
+            <li>Commercial and go-to-market leadership</li>
+            <li>Executive stakeholder engagement</li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page page-contact">
+  <div class="container">
+
+    <div class="section">
+
+      <div class="section-title">Discuss a Technology Challenge</div>
+
+      <div class="section-subtitle">
+        Advisory, assessment and transformation support
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info">
+
+          <h3>Have a complex technology challenge?</h3>
+
+          <p style="font-size:13px; line-height:1.8; margin-bottom:24px;">
+            I work with executives and transformation leaders who need an
+            experienced independent perspective on a significant technology
+            or transformation decision.
+          </p>
+
+          <div class="contact-item">
+            <span>📍</span>
+            <span>Pretoria, Gauteng, South Africa</span>
+          </div>
+
+          <div class="contact-item">
+            <span>✉</span>
+            <a href="mailto:Kamohelo2003@yahoo.com">
+              Kamohelo2003@yahoo.com
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span>in</span>
+            <a
+              href="https://www.linkedin.com/in/kmofokeng"
+              target="_blank"
+              rel="noopener"
+            >
+              linkedin.com/in/kmofokeng
+            </a>
+          </div>
+
+          <div style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.15);">
+
+            <h4 style="color:var(--gold); font-size:14px; margin:0 0 12px;">
+              Advisory Focus
+            </h4>
+
+            <p style="font-size:13px; margin:0; line-height:1.9;">
+              ▪ Technology Strategy & Advisory<br>
+              ▪ Transformation & Programme Recovery<br>
+              ▪ Cloud, AI & Modernisation<br>
+              ▪ Enterprise Architecture<br>
+              ▪ Independent Technology Assessments<br>
+              ▪ Executive Technology Advisory
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="contact-form">
+
+          <h3 style="font-size:18px; color:var(--primary); margin:0 0 20px;">
+            Start a Conversation
+          </h3>
+
+          <form
+            action="https://formsubmit.co/Kamohelo2003@yahoo.com"
+            method="POST"
+          >
+
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Technology Advisory Enquiry — Kamohelo Mofokeng"
+            >
+
+            <input
+              type="hidden"
+              name="_captcha"
+              value="false"
+            >
+
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="enquiry_type">What can I help with?</label>
+
+              <select id="enquiry_type" name="enquiry_type" required>
+                <option value="">Select an enquiry type</option>
+                <option>Executive Technology Diagnostic</option>
+                <option>Technology Strategy & Advisory</option>
+                <option>Transformation / Programme Assessment</option>
+                <option>Cloud, AI & Modernisation Advisory</option>
+                <option>Independent Technology Assessment</option>
+                <option>Speaking / Advisory</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tell me about the challenge</label>
+
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Briefly describe the technology challenge, decision or transformation you would like to discuss..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              Send Enquiry
+            </button>
+
+          </form>
+
+          <p class="disclaimer">
+            Independent advisory activities are undertaken subject to
+            applicable employment, confidentiality, conflict-of-interest and
+            intellectual property requirements.
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>
+    © 2026 <span>Kamohelo Mofokeng</span> |
+    Technology Transformation Advisory
+  </p>
+
+  <p style="font-size:10px; margin-top:8px; color:rgba(255,255,255,0.3);">
+    Independent advisory activities are subject to applicable
+    confidentiality, employment and conflict-of-interest requirements.
+  </p>
+</footer>
+
+</body>
+</html>
